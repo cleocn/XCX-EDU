@@ -39,6 +39,28 @@ function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+function formatName(name) {
+  var displayName = '';
+  if (name.length == 3) {
+    displayName = name.substring(0, 1) + " * *";
+  } else {
+    displayName = name.substring(0, 1) + " *";
+  }
+  return displayName;
+}
+function formatPhoneNum(pNum) {
+  var newTelVal = '';
+  if (pNum.length > 0) {
+    for (var i = 0; i < pNum.length; i++) {
+      if (i < 3 || i >= pNum.length - 3) {
+        newTelVal += pNum[i];
+      } else {
+        newTelVal += '*';
+      }
+    }
+    return newTelVal;
+    }
+}
 
 function getLocalTime(now) {     
   var d = new Date(now);
@@ -159,3 +181,5 @@ module.exports.formatTime2 = formatTime2;
 module.exports.formatDate = formatDate;
 //module.exports.ossAliyuncs = ossAliyuncs;
 module.exports.uuid = uuid;
+module.exports.formatPhoneNum = formatPhoneNum;
+module.exports.formatName = formatName;

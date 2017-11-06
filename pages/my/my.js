@@ -56,6 +56,11 @@ Page({
       data: iData,
       success: function (res) {
         console.log("获取用户情况:", res.data[0])
+        if (res.data[0].gender == 1) {
+          res.data[0].gender = '男';
+        } else {
+          res.data[0].gender = '女';
+        }
         that.setData({
           userInfo: res.data[0]
         })

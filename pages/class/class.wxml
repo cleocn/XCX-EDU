@@ -9,15 +9,15 @@
         预约人员
       </view>
       <view class="weui-flex__item" style="text-align:center;">
-        微信昵称
+        姓名
       </view>
       
       <view class="weui-flex__item" style="text-align:center;">
         电话号码
       </view>
-      <!-- <view class="weui-flex__item" style="text-align:center;">
+    <view class="weui-flex__item" style="text-align:center;">
         状态
-      </view> -->
+      </view>
       <!-- <view class="weui-flex__item" style="text-align:center;">
 
         </view> -->
@@ -29,10 +29,13 @@
           
         </view>
         <view class="weui-flex__item" style="text-align:center;">
-          {{item.nickName}}
+          {{item.name}}
         </view>
         <view class="weui-flex__item" style="text-align:center;">
           {{item.phone}}
+        </view>
+        <view class="weui-flex__item" style="text-align:center;">
+                        <button class="weui-btn mini-btn" type="default" size="mini">{{item.status}}</button>
         </view>
         <!-- <view class="weui-flex__item" style="text-align:center;">
 
