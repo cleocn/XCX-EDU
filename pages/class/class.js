@@ -1,4 +1,5 @@
 // pages/class/class.js
+var util = require("../../common/util");
 var app = getApp();
 Page({
 
@@ -75,7 +76,11 @@ Page({
       url: app.gData.iServerUrl + '/listClass',
       data: iData,
       success: function (res) {
-        console.log("获取班级情况:", res.data)
+        console.log("获取班级情况:", res.data);
+        for (var i = 0; i<res.data[0].enrPeople.length; i++) {
+          res.data[0].enrPeople[i].phone = util.formatPhoneNum(res.data[0].enrPeople[i].phone);
+          res.data[0].enrPeople[i].name = util.formatName(res.data[0].enrPeople[i].name);
+        }
         that.setData({
           classList: res.data
         })
