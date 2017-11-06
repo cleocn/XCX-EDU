@@ -1,0 +1,45 @@
+<!--pages/my/feedback.wxml-->
+<!--引入加载更多模版-->
+<import src="../../common/template" />
+<view class="container">
+
+  <!--评论列表-->
+  <view class="comments">
+    <view class="item touch-active" wx:for="{{messages}}" wx:key="" wx:for-item="c">
+      <view class="i-left">
+         <image class="c-u-img" src="{{c.avatarUrl}}"></image> 
+      </view>
+      <view class="i-right">
+        <view class="top">
+          <text class="u-name">{{c.nickName}}</text>
+          <text class="time">{{c.feedDate}}</text>
+        </view>
+
+        <!--评论内容-->
+        <view class="content">  {{c.message}} </view>
+         <navigator url="replyFeedback?mainFeedbackSeq={{c.seq}}">
+        <view class="comment-count"> {{c.replyCount}} 回复>></view>
+         </navigator>
+      </view>
+      
+    </view>
+  </view>
+
+  <!--加载更多模版-->
+  <block wx:if="{{isLoading}}">
+    <template is="loading" />
+  </block>
+  <block wx:else>
+    <template is="nodata" />
+  </block>
+  
+
+  <!--评论盒子-->
+  <view class="cf-bg" catchtap="cemojiCfBg" style="display:{{cfBg ? 'block' : 'none'}}"></view>
+  <view class="comment-fixed">
+    <view class="cf-box">
+      <textarea class="cf-content" bindfocus="textAreaFocus" maxlength="200" bindblur="textAreaBlur" auto-height value="{{message}}" placeholder="我有话说" />
+      <text class="cf-send touch-active" bindtap="send">发送</text>
+    </view>
+  </view>
+</view>

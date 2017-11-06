@@ -1,0 +1,92 @@
+<!--pages/order/order.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <!-- <button bindtap="pay" type="primary">支付测试</button> -->
+
+  </view>
+  <view class="page__bd">
+    <view class="weui-flex lineB">
+      <view class="weui-flex__item">
+        预约须知：
+      </view>
+    </view>
+
+    <view class="weui-flex" style="margin-bottom:20px;color:blue">
+      <view class="weui-flex__item">
+        请输入正确的手机号码，我们将通过该号码与您确认课程。
+      </view>
+    </view>
+
+
+    <view class="lineB">请确认您的课程信息</view>
+    <view style="font-size:14px;color:gray">
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">课程名称：</view>
+        <view>{{classInfo.courseName}}</view>
+      </view>
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">课程编号：{{classInfo.courseId}}</view>
+        <view class="">班级编号：{{classInfo.classId}}</view>
+      </view>
+
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">课程讲师：</view>
+        <view>{{classInfo.teacher}}</view>
+      </view>
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">上课地点：</view>
+        <view>{{classInfo.add}}</view>
+      </view>
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">上课时间：</view>
+        <view>{{classInfo.time}}</view>
+      </view>
+      <view class="weui-flex lineB">
+        <view class="weui-flex__item">上课日期：</view>
+        <view>{{classInfo.date}}</view>
+      </view>
+    </view>
+
+    <form bindsubmit="orderSubmit" bindreset="formReset">
+      <view class="lineB">请输入您的联系信息</view>
+
+
+      <view style="font-size:14px;">
+        <view class="weui-flex lineB">
+          <view class="">姓名：</view>
+          <view class="weui-flex__item">
+            <input name="name" class="" placeholder="请输入您的姓名" placeholder-class="placehold_red" />
+          </view>
+          <view wx:if="{{!userInfo.mobilePhone}}" class="">
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" size="mini" plain="true" type="primary" style="border:0">使用微信绑定手机
+            </button>
+          </view>
+        </view>
+
+        <view class="weui-flex lineB">
+          <view class="">手机号码：</view>
+          <view class="weui-flex__item">
+            <input name="phone" class="" placeholder="请输入手机号" placeholder-class="placehold_red" value="{{phone||userInfo.mobilePhone}}" max="13" confirm-type="完成" />
+          </view>
+          <view wx:if="{{!userInfo.mobilePhone}}" class="">
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" size="mini" plain="true" type="primary" style="border:0">使用微信绑定手机
+            </button>
+          </view>
+        </view>
+
+        <view class="weui-flex lineB">
+          <view class="weui-flex__item">推荐码：</view>
+          <view class="weui-flex__item">
+            <input name="sCode" class="" placeholder="请输入您的推荐码" />
+          </view>
+          <view class="weui-flex__item"></view>
+        </view>
+
+      </view>
+      <view class="btn-area">
+        <button formType="submit" class="" type="primary" style="margin-top:30px">提交预约</button>
+      </view>
+    </form>
+
+  </view>
+</view>

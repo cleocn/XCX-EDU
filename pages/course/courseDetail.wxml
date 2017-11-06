@@ -1,0 +1,132 @@
+<!--pages/course/courseDetail.wxml-->
+<view class="page">
+  <view class="page__hd">
+  </view>
+  <view class="page__bd">
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNavi">课程简介</view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNavi">课程大纲</view>
+      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNavi">课程预约</view>
+
+    </view>
+
+    <view class="weui-flex">
+      <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+        <swiper-item>
+          <scroll-view scroll-y style="height:{{winHeight}}px">
+
+            <view class="weui-flex courseTitle">
+              <view class="weui-flex__item">
+                {{course.title}}
+              </view>
+            </view>
+
+            <image style="width:100%;height:300px;margin:0" mode="aspectFit" src="{{course.descUrl}}"></image>
+            <view class="weui-flex courseSection lineB">
+              <view class="weui-flex__item">
+                课程简介
+              </view>
+            </view>
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <text>{{course.desc}}</text>
+              </view>
+            </view>
+            <view class="weui-flex courseSection lineB">
+              <view class="weui-flex__item">
+                课程特色
+              </view>
+            </view>
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <view class="page_list" wx:for="{{course.salsePoint}}" wx:key="index">
+                  {{index}}:{{item}}
+                </view>
+              </view>
+            </view>
+            <view class="weui-flex courseSection lineB">
+              <view class="weui-flex__item">
+                课程目标
+              </view>
+            </view>
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+
+                <view class="page_list" wx:for="{{course.targets}}" wx:key="index">
+                  {{index}}:{{item}}
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view scroll-y="true" style="height:{{winHeight}}px">
+            <view class="page_list" wx:for="{{course.chapters}}" wx:key="index">
+              <view class="weui-flex courseTitle lineB">
+                <view class="weui-flex__item">
+                  第{{index}}部分:{{item.title}}
+                </view>
+              </view>
+              <view class="weui-flex">
+                <view class="weui-flex__item ">
+                  <view class="courseSection"> 学习目标:</view>
+                </view>
+              </view>
+              <view class="weui-flex">
+                <view class="weui-flex__item">
+                  {{item.target}}
+                </view>
+              </view>
+              <view class="weui-flex">
+                <view class="weui-flex__item">
+                  <view class="courseSection"> 学习内容：</view>
+                </view>
+              </view>
+
+              <view class="page_list" wx:for="{{item.contents}}" wx:key="index">
+                <view class="weui-flex">
+                  <view class="weui-flex__item">
+                    {{index}} {{item}}
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view scroll-y="true" style="height:{{winHeight}}px">
+            <view class="page_list" wx:for="{{classList}}" wx:key="courseId">
+              <view id="{{item.classId}}" data-courseid="{{item.courseId}}" class="weui-panel" bindtap="gotoClass">
+                <!-- <view class="weui-panel__hd"></view> -->
+                <view class="weui-panel__bd">
+                  <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text" style="color:red">
+                      <view class="weui-flex">
+                        <view class="weui-flex__item">{{item.type}}</view>
+                        <button disabled="{{item.status}}" id="{{item.classId}}" data-courseid="{{item.courseId}}" catchtap="order" size="mini" type="primary">{{item.statusMsg}}</button>
+                      </view>
+                    </view>
+                    <view class="weui-media-box__desc" style="margin-bottom:5px">{{item.desc}}</view>
+                    <view class="weui-media-box__info" style="margin-bottom:5px">
+                      <view class="weui-media-box__info__meta" style="color:black">主讲:{{item.teacher}}老师</view>
+                      <view class="weui-media-box__info__meta" style="color:black">助教:{{item.assistant}}老师</view>
+                      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" style="color:blue">预约人数：{{item.current}}/{{item.max}}</view>
+                    </view>
+                    <view class="weui-media-box__desc" style="margin-bottom:5px">上课地址：{{item.add}}</view>
+                    <view class="weui-media-box__desc" style="">上课时间：{{item.time}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </scroll-view>
+
+        </swiper-item>
+      </swiper>
+
+    </view>
+
+
+  </view>
+</view>

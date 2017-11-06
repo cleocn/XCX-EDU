@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="weui-flex">
+      <view class="weui-flex__item location ellipsis">
+        <view class="fa fa-map-marker"></view>
+        {{addr}}</view>
+      <view>
+        <button type="primary" size="mini" bindtap="nav">学校导航</button>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:300rpx">
+      <block wx:for-items="{{imgUrls}}" wx:key="{{*this}}">
+        <swiper-item style="text-align:center;width:100%;height:320px;">
+          <image src="{{item}}" mode="widthFix" />
+        </swiper-item>
+      </block>
+
+    </swiper>
+
+    <view class="weui-flex line lineB">
+      <view class="" style="color:OrangeRed;font-weight:bold;font-size:12px">
+        <view class="weui-flex">系统</view>
+        <view class="weui-flex">公告</view>
+      </view>
+      <view class="weui-flex__item" style="margin-left:12px">
+        <swiper autoplay="true" interval="4000" duration="3000" style="height:80rpx" vertical="true">
+          <block wx:for-items="{{toutiao}}" wx:key="{{*this}}">
+            <swiper-item style="width:100%">
+              <text style="white-space:pre-wrap;font-size:12px">{{item}}</text>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+
+    
+      <view class="page_list" wx:for="{{course}}" wx:key="index">
+
+         
+          <view class='weui-panel weui-panel_access'>
+
+            <navigator url="../course/courseDetail?id={{item.courseId}}" class="">
+              <image style="width:100%;height:300px;margin:0;padding:0" mode="aspectFit" src="{{item.descUrl}}"></image>
+              <view class="weui-flex">
+                <view class="weui-flex__item" style="font-weight:bold">{{item.title}}</view>
+                <view class="">{{item.sumTime}}学时</view>
+                <view style="color:red;margin-left:10px"></view>
+              </view>
+              <view class="weui-flex">
+                <view class="weui-flex__item"></view>
+                <!-- <view class="weui-flex__item" style="color:red">{{item.type}}</view> -->
+                <view class="">已报名人数：{{item.sumPeople}}</view>
+              </view>
+            </navigator>
+          </view>
+         
+      
+
+    </view>
+
+  </view>
+</view>

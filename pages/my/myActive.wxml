@@ -1,0 +1,35 @@
+<!--pages/my/myActive.wxml-->
+<!--<text>pages/my/myActive.wxml</text>-->
+
+<view class="page">
+
+
+  <view class="page__bd">
+
+    <block wx:if="{{myClass[0].classId}}">
+      <view class="page_list lineB" wx:for="{{myClass}}">
+        <view class="weui-flex">
+          <view class="weui-flex__item" style="text-align:left;">
+            <view style="font-weight:bold">{{item.course}}</view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item" style="text-align:left;">
+            <view style="font-color:gray">
+              <text>班级编号: {{item.classId}}</text>
+            </view> 
+          </view>
+          <view>
+              <button class="weui-btn mini-btn" type="default" size="mini">{{item.status}}</button>
+            </view>
+        </view>
+      </view>
+    </block>
+
+
+    <view wx:elif="{{!myClass[0].classId}} ">你还没有课程！ </view>
+
+  </view>
+  <!--page__bd-->
+</view>
+<!--page-->

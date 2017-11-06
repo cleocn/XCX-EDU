@@ -1,0 +1,46 @@
+<!--pages/class/class.wxml-->
+<view class="page">
+  <view class="page__hd">
+
+  </view>
+  <view class="page__bd">
+    <view class="weui-flex line lineB" style="font-weight:bold;padding-bottom:10rpx">
+      <view class="weui-flex__item">
+        预约人员
+      </view>
+      <view class="weui-flex__item" style="text-align:center;">
+        微信昵称
+      </view>
+      
+      <view class="weui-flex__item" style="text-align:center;">
+        电话号码
+      </view>
+      <!-- <view class="weui-flex__item" style="text-align:center;">
+        状态
+      </view> -->
+      <!-- <view class="weui-flex__item" style="text-align:center;">
+
+        </view> -->
+    </view>
+    <view class="page_list lineB" wx:for="{{classList[0].enrPeople}}">
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <image class="" src="{{item.avatarUrl}}" background-size="cover" style="width:30px;height:30px;text-align:right;border-radius:20%;"></image>
+          
+        </view>
+        <view class="weui-flex__item" style="text-align:center;">
+          {{item.nickName}}
+        </view>
+        <view class="weui-flex__item" style="text-align:center;">
+          {{item.phone}}
+        </view>
+        <!-- <view class="weui-flex__item" style="text-align:center;">
+
+        </view> -->
+        <!-- <view class="weui-flex__item" style="text-align:center;"> -->
+        <!-- <view class="fa fa-user-circle"></view> -->
+        <!-- </view> -->
+      </view>
+    </view>
+  </view>
+</view>

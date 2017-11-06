@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/order/order",
+    "pages/course/courseDetail",
+    "pages/my/my",
+    "pages/my/myInfo",
+    "pages/my/myActive",
+    "pages/my/feedback",
+    "pages/class/class",
+    "pages/teacher/teacher"
+  ],
+  "window": {
+    "backgroundTextStyle": "white",
+    "navigationBarBackgroundColor": "#800080",
+    "navigationBarTitleText": "匠驴教育",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "selectedIconPath": "images/home.png",
+        "iconPath": "images/home_default.png",
+        "pagePath": "pages/index/index",
+        "text": "课程"
+      },
+      {
+        "selectedIconPath": "images/teacher.png",
+        "iconPath": "images/teacher_default.png",
+        "pagePath": "pages/teacher/teacher",
+        "text": "讲师"
+      },
+      {
+          "selectedIconPath": "images/my.png",
+          "iconPath": "images/my_default.png",
+          "pagePath": "pages/my/my",
+          "text": "我的"
+        
+      }
+    ]
+  }
+}
