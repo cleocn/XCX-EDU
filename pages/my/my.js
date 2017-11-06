@@ -6,13 +6,16 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    currentTab: 0
+    currentTab: 0,
+    shcool: [],
+    index:0,
 
   },
   //事件处理函数
 
   getSystemInfo: function () {
     var res = wx.getStorageSync('systemInfo');
+
     wx.showModal({
       title: '系统信息',
       //真机换行起作用
@@ -41,7 +44,9 @@ Page({
 
 
   onLoad: function () {
-
+      this.setData({
+        shcool: config.shcool
+      });
     
 
   },
@@ -79,14 +84,15 @@ Page({
     this.getUserInfo();
    
   },
-   nav: function () {
-    console.log("config", config.Comp);
+
+  bindPickerChange: function (e) {
+    let index = e.detail.value;
     wx.openLocation({
-      latitude: config.Comp.latitude,
-      longitude: config.Comp.longitude,
-      scale: config.Comp.scale,
-      name: config.Comp.name,
-      address: config.Comp.address,
+      latitude: config.Comp[index].latitude,
+      longitude: config.Comp[index].longitude,
+      scale: config.Comp[index].scale,
+      name: config.Comp[index].name,
+      address: config.Comp[index].address,
     })
   },
 })

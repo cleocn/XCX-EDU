@@ -9,6 +9,8 @@ Page({
     hasUserInfo: false,
     addr:"",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    shcool: [],
+    index: 0,
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509118528965&di=5ed66f58831ec879631d100b56ef59df&imgtype=0&src=http%3A%2F%2Fimg.365128.com%2Fk12%2Fkre%2Ftgre12-64-so.jpg',
@@ -36,6 +38,7 @@ Page({
 
     this.setData({
     userInfo: app.gData.userInfo,
+    shcool: config.shcool
     })
 
     try {
@@ -105,15 +108,14 @@ Page({
     this.listCourse();
   },
 
-  nav: function () {
-    console.log("config", config.Comp);
+  bindPickerChange: function (e) {
+    let index = e.detail.value
     wx.openLocation({
-      latitude: config.Comp.latitude,
-      longitude: config.Comp.longitude,
-      scale: config.Comp.scale,
-      name: config.Comp.name,
-      address: config.Comp.address,
+      latitude: config.Comp[index].latitude,
+      longitude: config.Comp[index].longitude,
+      scale: config.Comp[index].scale,
+      name: config.Comp[index].name,
+      address: config.Comp[index].address,
     })
   },
-  
 })

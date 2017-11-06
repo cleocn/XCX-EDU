@@ -6,7 +6,9 @@
         <view class="fa fa-map-marker"></view>
         {{addr}}</view>
       <view>
-        <button type="primary" size="mini" bindtap="nav">学校导航</button>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{shcool}}"> <button type="primary" size="mini" >学校导航
+        </button></picker>
+       
       </view>
     </view>
   </view>
