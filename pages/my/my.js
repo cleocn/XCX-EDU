@@ -90,14 +90,4 @@ Page({
    
   },
 
-  bindPickerChange: function (e) {
-    let index = e.detail.value;
-    wx.openLocation({
-      latitude: config.Comp[index].latitude,
-      longitude: config.Comp[index].longitude,
-      scale: config.Comp[index].scale,
-      name: config.Comp[index].name,
-      address: config.Comp[index].address,
-    })
-  },
 })
