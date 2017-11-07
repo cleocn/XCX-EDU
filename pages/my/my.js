@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp();
 var config = require('../../libs/config.js');
+var util = require("../../common/util");
 Page({
   data: {
     motto: 'Hello World',
@@ -55,7 +56,9 @@ Page({
     
     var that = this;
     console.log("app.gData.userInfo:", app.gData.userInfo)
-    var iData = { openId: app.gData.userInfo.openId }
+    var iData = { 
+      "openId": app.gData.userInfo.openId
+    }
     wx.request({
       url: app.gData.iServerUrl + '/listUser',
       data: iData,
@@ -66,6 +69,8 @@ Page({
         } else {
           res.data[0].gender = '女';
         }
+        res.data[0].lastLoginTime = util.getLocalTime(res.data[0].lastLoginTime);
+        res.data[0].firstLoginTime = util.getLocalTime(res.data[0].firstLoginTime);
         that.setData({
           userInfo: res.data[0]
         })
