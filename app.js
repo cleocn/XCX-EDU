@@ -167,7 +167,7 @@ App({
   gData: {
     userInfo: null,
     iServerUrl: "https://isoft-info.com",
-    //iServerUrl: "http://localhost:7001",
+  //  iServerUrl: "https://localhost:443",
     location: {},
 
   }

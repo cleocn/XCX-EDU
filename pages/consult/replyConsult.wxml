@@ -1,0 +1,67 @@
+<!--引入加载更多模版-->
+<import src="../../common/template" />
+<view class="container">
+
+
+   <!--主评论列表-->
+  <view class="comments" style="box-shadow: 10px 1px 10px #888888;">
+    <view class="item touch-active">
+      <view class="i-left">
+         <image class="c-u-img" src="{{consult.avatarUrl}}"></image> 
+      </view>
+  
+      <view class="i-right">
+        <view class="top">
+          <text class="u-name">{{consult.nickName}}</text>
+          <text class="time">{{consult.consultDate}}</text>
+        </view>
+        <!--评论内容-->
+        <view class="content">{{consult.message}} </view>
+      </view>
+
+    </view>
+  </view>
+  
+  <!--评论回复列表-->
+  <view class="comments">
+    <view class="item touch-active" wx:for="{{replyConsult}}" wx:key="" wx:for-item="c">
+      <view class="i-left">
+         <image class="c-u-img" src="{{c.avatarUrl}}"></image> 
+      </view>
+      <view class="i-right">
+        <view class="top">
+          <text class="u-name">{{c.nickName}}</text>
+          <text class="time">{{c.consultDate}}</text>
+        </view>
+        <view class="content">{{c.message}} </view>      <!--评论内容-->
+      </view>
+    </view>
+  </view>
+
+  <!--加载更多模版-->
+  <block wx:if="{{isLoading}}">
+    <template is="loading" />
+  </block>
+  <block wx:else>
+    <template is="nodata" />
+  </block>
+  
+
+  <!--评论盒子-->
+
+
+
+      <view class="comment-fixed">
+    <form bindsubmit="bindFormSubmit">
+    <view class="msg">
+      <textarea class="cf-content" maxlength="200" auto-height value="{{message}}" placeholder="我有话说" name="textarea" />
+      <button form-type="submit" class="cf-send touch-active">发送</button>
+    </view>
+      </form>
+  </view>
+
+
+
+
+
+</view>
