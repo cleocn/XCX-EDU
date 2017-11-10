@@ -56,13 +56,13 @@ Page({
 
   //获取课程详情
   
-  getCourse: function (id) {
+  getCourse: function (_id) {
     var that = this;
     var iData = {};
     iData.courseId = id;
     wx.request({
-      url: app.gData.iServerUrl + '/listCourse',
-      data: iData,
+      url: app.gData.iServerUrl + '/course/'+_id,
+      //data: iData,
       success: function (res) {
         console.log("获取课程详情", res.data)
         that.setData({

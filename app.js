@@ -57,23 +57,22 @@ App({
     var that = this;
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log("wx.login.res:", res);
-        var iData = {};
+        // 发送 res.code 到后台换取 openId, sessionKey,并获得userid
+         
+        var iData = that.gData.userInfo;
         iData.code = res.code;
         wx.request({
-          url: this.gData.iServerUrl + '/wxLogin',
+          url: that.gData.iServerUrl + '/wxLogin',
           data: iData,
           success: function (res) {
-            console.log("获取openId：", res.data)
+            console.log("获取userid：", res.data)
+            var user_id = res.data._id;
+
+            // 获取用户信息
+            that.gData.userInfo = res.data.value;
             //获取登录坐标
             that.updateLocation();
-            var openId = res.data.openid;
             
-            // 获取用户信息
-            that.gData.userInfo.openId = openId;
-            //业务登陆
-            that.login();  
           },
 
           fail: function (res) { }
@@ -87,7 +86,7 @@ App({
   login: function () {
 
     var that = this;
-    console.log("根据openID进行业务登陆",this.gData.userInfo);
+    console.log("根据user_id进行业务登陆",this.gData.userInfo);
     var iData = that.gData.userInfo;
      
     
@@ -166,8 +165,8 @@ App({
   /******************************************************************** */
   gData: {
     userInfo: null,
-    iServerUrl: "https://isoft-info.com",
-    //iServerUrl: "http://localhost:7001",
+    //iServerUrl: "https://isoft-info.com",
+    iServerUrl: "http://localhost:7001/api/v1",
     location: {},
 
   }
