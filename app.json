@@ -8,7 +8,9 @@
     "pages/my/myActive",
     "pages/my/feedback",
     "pages/class/class",
-    "pages/teacher/teacher"
+    "pages/teacher/teacher",
+    "pages/consult/consult",
+    "pages/consult/replyConsult"
   ],
   "window": {
     "backgroundTextStyle": "white",
@@ -30,6 +32,12 @@
         "iconPath": "images/teacher_default.png",
         "pagePath": "pages/teacher/teacher",
         "text": "讲师"
+      },
+      {
+        "selectedIconPath": "images/consult.png",
+        "iconPath": "images/consult_default.png",
+        "pagePath": "pages/consult/consult",
+        "text": "咨询"
       },
       {
           "selectedIconPath": "images/my.png",
