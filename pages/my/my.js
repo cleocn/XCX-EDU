@@ -56,16 +56,9 @@ Page({
     
     var that = this;
     console.log("app.gData.userInfo:", app.gData.userInfo)
-    var iData = {
-      "openId": app.gData.userInfo.openid
-    }
+
     wx.request({
-      url: app.gData.iServerUrl + '/listUser',
-      data: iData,
-      header: {
-        "Content-Type": "application/json"
-      },
-      method:"POST",
+      url: app.gData.iServerUrl + '/user/' + app.gData.userInfo._id,
       success: function (res) {
         console.log("获取用户情况:", res.data[0])
         if (res.data[0].gender == 1) {
