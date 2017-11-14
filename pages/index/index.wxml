@@ -16,7 +16,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:300rpx">
       <block wx:for-items="{{imgUrls}}" wx:key="{{*this}}">
         <swiper-item style="text-align:center;width:100%;height:320px;">
-          <image src="{{item}}" mode="widthFix" />
+          <image style="width:100%;" src="{{item}}" mode="widthFix" />
         </swiper-item>
       </block>
 
@@ -31,7 +31,7 @@
         <swiper autoplay="true" interval="4000" duration="3000" style="height:80rpx" vertical="true">
           <block wx:for-items="{{toutiao}}" wx:key="{{*this}}">
             <swiper-item style="width:100%">
-              <text style="white-space:pre-wrap;font-size:12px">{{item}}</text>
+              <text style="white-space:pre-wrap;color:OrangeRed;font-size:14px">{{item}}</text>
             </swiper-item>
           </block>
         </swiper>
@@ -54,7 +54,8 @@
               <view class="weui-flex">
                 <view class="weui-flex__item"></view>
                 <!-- <view class="weui-flex__item" style="color:red">{{item.type}}</view> -->
-                <view class="">已报名人数：{{item.sumPeople}}</view>
+                <view class="" style="color:gray;font-size:14px">{{item.sumPeople}}人已申请</view>
+                 <view style="color:red;margin-left:10px"></view>
               </view>
             </navigator>
           </view>

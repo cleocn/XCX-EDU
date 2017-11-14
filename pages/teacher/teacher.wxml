@@ -18,20 +18,20 @@
             <view class="weui-flex">
 
               <view class="weui-flex__item" style="font-weight:bold">
-                {{item.nickName}}
+                {{item.nickName}}老师
               </view>
             </view>
 
             <view class="weui-flex">
 
               <view class="weui-flex__item lineB">
-                主讲课程:{{item.course}}
+                主讲课程 : {{item.course}}
               </view>
             </view>
 
             <view class="weui-flex">
 
-              <view class="weui-flex__item" style="color:gray">
+              <view class="weui-flex__item" style="color:gray;font-size:13px">
                 {{item.expert}}
               </view>
             </view>
@@ -46,20 +46,20 @@
             <view class="weui-flex">
 
               <view class="weui-flex__item" style="font-weight:bold">
-                {{item.nickName}}
+                {{item.nickName}}老师
               </view>
             </view>
 
             <view class="weui-flex">
 
               <view class="weui-flex__item lineB">
-                主讲课程:{{item.course}}
+                主讲课程 : {{item.course}}
               </view>
             </view>
 
             <view class="weui-flex">
 
-              <view class="weui-flex__item" style="color:gray">
+              <view class="weui-flex__item" style="color:gray;font-size:13px">
                 {{item.expert}}
               </view>
             </view>

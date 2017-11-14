@@ -7,22 +7,22 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    addr:"",
+    addr: "",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     shcool: [],
     index: 0,
     imgUrls: [
-       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509116573262&di=0eb9799b3322c80eafa8ad7f4effcf9e&imgtype=0&src=http%3A%2F%2Fjiuye-res.jikexueyuan.com%2Fzhiye%2Fshowcase%2Fattach-%2F20160930%2F9a81a7f2-9c90-49d1-aa3b-fa1d36c3ab32.jpg',
-      'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLCd0icrViaAR6q6tUZLhoxfuttxD8LeBY9SYjhl56fYYrmwVtj5kJ99EiaOUcWRicU2wdM/510',
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509506213863&di=7badcf8a1373a5edb92e0f53e64131bc&imgtype=0&src=http%3A%2F%2Fs1.51cto.com%2Fimages%2F201609%2Fa2a4d6a694e784c576e543c87d0ff1b4682c52.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509116573262&di=0eb9799b3322c80eafa8ad7f4effcf9e&imgtype=0&src=http%3A%2F%2Fjiuye-res.jikexueyuan.com%2Fzhiye%2Fshowcase%2Fattach-%2F20160930%2F9a81a7f2-9c90-49d1-aa3b-fa1d36c3ab32.jpg',
       'http://www.kubikeji.com/uploads/allimg/150820/1-150R01J3095Y.jpg',
-      'http://ty.java.tedu.cn/upload/20170421/20170421134951_530.jpg'
-   
+      'http://ty.java.tedu.cn/upload/20170421/20170421134951_530.jpg',
+      'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLCd0icrViaAR6q6tUZLhoxfuttxD8LeBY9SYjhl56fYYrmwVtj5kJ99EiaOUcWRicU2wdM/510'
+
     ],
     toutiao: [
-      '乘风破浪，开张大吉！',
-      '合作伙伴招募,乘风破浪，开张大吉！新人大礼包，速速领取！',
-      '合作伙伴招募'
+      '乘风破浪，开张大吉!',
+      '新生入学享多重好礼',
+      '还在等什么? 赶紧报名吧!'
     ],
     course: [
       { id: 4, name: "微信小程序全栈工程师", fee: 99, time: 980, enrPeople: 9, planPeople: 30, type: "晚班"}],
@@ -32,7 +32,7 @@ Page({
     duration: 1000,
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -40,8 +40,8 @@ Page({
   onLoad: function () {
 
     this.setData({
-    userInfo: app.gData.userInfo,
-    shcool: config.shcool
+      userInfo: app.gData.userInfo,
+      shcool: config.shcool
     })
 
     try {
@@ -94,10 +94,12 @@ Page({
   //   })
   // },
 
-  listCourse:function(e){
+  listCourse: function (e) {
     var that = this;
     wx.request({
+
       url: app.gData.iServerUrl +'/course',
+
       data: {},
       success: function (res) {
         console.log(res.data)
@@ -107,7 +109,7 @@ Page({
       }
     })
   },
-  onShow:function(e){
+  onShow: function (e) {
     this.listCourse();
   },
 
