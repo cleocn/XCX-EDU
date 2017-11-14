@@ -59,7 +59,7 @@ Page({
   getCourse: function (_id) {
     var that = this;
     var iData = {};
-    iData.courseId = id;
+    iData.courseId = _id;
     wx.request({
       url: app.gData.iServerUrl + '/course/'+_id,
       //data: iData,
