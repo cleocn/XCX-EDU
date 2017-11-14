@@ -69,7 +69,7 @@ Page({
     console.log("查找讲师");
     var that = this;
     wx.request({
-      url: app.gData.iServerUrl + '/listTeacher',
+      url: app.gData.iServerUrl + '/teacher',
       data: {},
       success: function (res) {
         console.log(res.data)
