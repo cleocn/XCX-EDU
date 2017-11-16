@@ -99,7 +99,7 @@ Page({
 
         },
         header: { 'content-type': 'application/json' },
-        method: 'GET',
+        method: 'POST',
         success: function (res) {
           let result = res.data;
           console.log("*******insert message", result);
@@ -128,7 +128,7 @@ Page({
       header: {
         'content-type': 'application/json'
       },
-      method: 'GET',
+      method: 'POST',
       success: function (res) {
         let result = res.data;
         console.log("*******测试留言message", result);

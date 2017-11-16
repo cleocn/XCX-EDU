@@ -116,7 +116,7 @@ Page({
           avatarUrl: app.gData.userInfo.avatarUrl,
         },
         header: { 'content-type': 'application/json' },
-        method: 'GET',
+        method: 'POST',
         success: function (res) {
           let result = res.data;
          // console.log("*******insert REPLY", result);
@@ -150,7 +150,7 @@ Page({
       header: {
         'content-type': 'application/json'
       },
-      method: 'GET',
+      method: 'POST',
       success: function (res) {
         let result = res.data;
         console.log("*******reply message", result);
