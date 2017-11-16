@@ -69,12 +69,13 @@ Page({
     console.log("获取班级情况");
     var that = this;
     var iData = {
-      classId: classId,
-      courseId: courseId
+      classId: parseInt(classId),
+      courseId: parseInt(courseId)
     }
     wx.request({
       url: app.gData.iServerUrl + '/listClass',
       data: iData,
+      method:"POST",
       success: function (res) {
         console.log("获取班级情况:", res.data);
         for (var i = 0; i<res.data[0].enrPeople.length; i++) {

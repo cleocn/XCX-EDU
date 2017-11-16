@@ -45,9 +45,9 @@ Page({
         });
       }
     });
-    courseId = options.id;
+    courseId = options.courseId;
     this.getCourse(options.id);
-    this.showClass(options.id);
+    this.showClass(courseId);
   },
   onShow: function () {
     this.showClass(courseId);
@@ -77,10 +77,11 @@ Page({
     console.log("获取班级列表",id);
     var that = this;
     var iData = {};
-    iData.courseId = id;
+    iData.courseId = parseInt(id);
     wx.request({
       url: app.gData.iServerUrl +'/listClass',
       data: iData,
+      method:"POST",
       success: function (res) {
         console.log("获取班级列表返回:",res.data)
         that.classList = [];

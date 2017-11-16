@@ -135,6 +135,7 @@ Page({
 
         url: app.gData.iServerUrl + '/inClass',
         data: iData,
+        method: "POST",
         success: function (res) {
           console.log(res.data)
           if (res.data.length > 0) {
