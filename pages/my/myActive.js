@@ -52,10 +52,10 @@ Page({
 
       switch (item.courseId) {
         case '100001':
-          that.data.myClass[index].course = "微信小程序全栈开发从入门到项目实战"
+          that.data.myClass[index].course = "微信小程序全栈开发入门"
           break;
         case '100002':
-          that.data.myClass[index].course = "微信小程序全栈开发基础"
+          that.data.myClass[index].course = "微信小程序全栈开发从入门到项目实战"
           break;
         case '100003':
           that.data.myClass[index].course = "软件开发入门"
