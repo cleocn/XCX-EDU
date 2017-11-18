@@ -14,7 +14,7 @@ var comp = [{
     scale:12
   },
 ];
-var shcool=['博海校区', '领海校区'];
+var shcool=['博海校区(科技路西)', '领海校区(锦业路)'];
 
 
 module.exports.Comp = comp;
