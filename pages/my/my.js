@@ -58,7 +58,7 @@ Page({
     console.log("app.gData.userInfo:", app.gData.userInfo)
 
     wx.request({
-      url: app.gData.iServerUrl + '/user/' + app.gData.userInfo._id,
+      url: app.gData.iServerUrl + '/edu' + '/user/' + app.gData.userInfo._id,
       success: function (res) {
         console.log("获取用户情况:", res.data[0])
         if (res.data[0].gender == 1) {

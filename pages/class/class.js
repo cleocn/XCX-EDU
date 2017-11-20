@@ -73,7 +73,7 @@ Page({
       courseId: parseInt(courseId)
     }
     wx.request({
-      url: app.gData.iServerUrl + '/listClass',
+      url: app.gData.iServerUrl + '/edu' + '/listClass',
       data: iData,
       method:"POST",
       success: function (res) {

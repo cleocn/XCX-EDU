@@ -105,7 +105,7 @@ Page({
       //数据发送到后台保存
       console.log("conArr", conArr[0]);
       wx.request({
-        url: app.gData.iServerUrl+ '/addReplyConsult',
+        url: app.gData.iServerUrl+ '/edu' + '/addReplyConsult',
         data: { //comment: conArr[0] 
           seq: id,
           mainSeq: that.data.mainSeq,
@@ -143,7 +143,7 @@ Page({
    
     console.log("mainSeq", that.data.mainSeq);
     wx.request({
-      url: app.gData.iServerUrl + '/listReplyConsult',
+      url: app.gData.iServerUrl + '/edu' + '/listReplyConsult',
       data: {
         mainSeq: that.data.mainSeq
       },

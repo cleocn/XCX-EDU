@@ -98,7 +98,7 @@ Page({
     var that = this;
     wx.request({
 
-      url: app.gData.iServerUrl +'/course',
+      url: app.gData.iServerUrl + '/edu' +'/course',
 
       data: {},
       success: function (res) {
