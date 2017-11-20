@@ -133,7 +133,7 @@ Page({
 
       wx.request({
 
-        url: app.gData.iServerUrl + '/inClass',
+        url: app.gData.iServerUrl + '/edu' + '/inClass',
         data: iData,
         method: "POST",
         success: function (res) {
@@ -209,7 +209,7 @@ Page({
         wx.request({
           data: iData,
 
-          url: app.gData.iServerUrl + '/getPhone',
+          url: app.gData.iServerUrl + '/edu' + '/getPhone',
 
           success: function (res) {
 

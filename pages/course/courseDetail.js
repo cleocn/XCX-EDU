@@ -61,7 +61,7 @@ Page({
     var iData = {};
     iData.courseId = _id;
     wx.request({
-      url: app.gData.iServerUrl + '/course/'+_id,
+      url: app.gData.iServerUrl + '/edu' + '/course/'+_id,
       //data: iData,
       success: function (res) {
         console.log("获取课程详情", res.data)
@@ -79,7 +79,7 @@ Page({
     var iData = {};
     iData.courseId = parseInt(id);
     wx.request({
-      url: app.gData.iServerUrl +'/listClass',
+      url: app.gData.iServerUrl + '/edu' +'/listClass',
       data: iData,
       method:"POST",
       success: function (res) {

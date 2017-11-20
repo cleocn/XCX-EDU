@@ -89,7 +89,7 @@ Page({
       //数据发送到后台保存
       console.log("conArr", conArr[0]);
       wx.request({
-        url: config.iServerUrl + '/addMessage',
+        url: config.iServerUrl + '/edu' + '/addMessage',
         data: { 
           seq: id,
           feedType:'1',

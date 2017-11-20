@@ -88,7 +88,7 @@ Page({
       //数据发送到后台保存
       console.log("conArr", conArr[0]);
       wx.request({
-        url: app.gData.iServerUrl + '/addConsult',
+        url: app.gData.iServerUrl + '/edu' + '/addConsult',
         data: { 
           seq: id,
           openId: app.gData.userInfo.openId,
@@ -122,7 +122,7 @@ Page({
   findAllConsult: function () {
     var that = this;
     wx.request({
-      url: app.gData.iServerUrl + '/listConsult',
+      url: app.gData.iServerUrl + '/edu' + '/listConsult',
       data: {
       },
       header: {

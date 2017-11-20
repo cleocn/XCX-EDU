@@ -61,8 +61,10 @@ App({
          
         var iData = that.gData.userInfo;
         iData.code = res.code;
+//        iData.firstLoginTime = new Date();
+//        iData.lastLoginTime = new Date();
         wx.request({
-          url: that.gData.iServerUrl + '/wxLogin',
+          url: that.gData.iServerUrl + '/edu' + '/wxLogin',
           data: iData,
           success: function (res) {
             console.log("获取userid：", res.data)
@@ -91,7 +93,7 @@ App({
      
     
     wx.request({
-      url: that.gData.iServerUrl + '/myLogin',
+      url: that.gData.iServerUrl + '/edu' + '/myLogin',
       data: iData,
       success: function (res) {
         console.log("业务登陆",res)
@@ -166,9 +168,9 @@ App({
   gData: {
     userInfo: null,
  
-    //iServerUrl: "https://isoft-info.com",
-    iServerUrl: "http://localhost:7001/api/v1",
- 
+    iServerUrl: "https://www.isoft-info.com",
+    //iServerUrl: "http://localhost:7001/api/v1",
+
     location: {},
 
   }
